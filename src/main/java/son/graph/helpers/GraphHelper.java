@@ -8,7 +8,7 @@ import son.graph.models.interfaces.Graph;
 import son.graph.models.interfaces.Node;
 
 public class GraphHelper {
-	public static List<String> getNames(List<Node> nodes) {
+	public static List<String> getNodeNames(List<Node> nodes) {
 		List<String> names = new ArrayList<>();
 		for (Node node : nodes) {
 			names.add(node.getName());
