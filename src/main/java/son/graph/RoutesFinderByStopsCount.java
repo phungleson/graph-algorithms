@@ -25,12 +25,12 @@ public class RoutesFinderByStopsCount extends RoutesFinderByConstraint {
 
 		@Override
 		public boolean canStop(List<Node> currentRoute) {
-			return currentRoute.size() == stopsCount + 2;
+			return currentRoute.size() == stopsCount + 1;
 		}
 
 		@Override
 		public boolean canMoveNext(List<Node> currentRoute) {
-			return currentRoute.size() < stopsCount + 2;
+			return currentRoute.size() < stopsCount + 1;
 		}
 	}
 }

@@ -15,7 +15,7 @@ describe RoutesFinderByStopsMax {
 		context "given BFS, C to C" {
 			fact {
 				subject = new RoutesFinderByStopsMax(algorithm);
-				subject.calculate("C", "C", 2)
+				subject.calculate("C", "C", 3)
 				subject.routes.forEach[ println(GraphHelper.getNames(it)) ]
 				subject.routes.size should be 2 
 			}

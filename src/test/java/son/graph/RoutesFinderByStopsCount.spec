@@ -15,7 +15,7 @@ describe RoutesFinderByStopsCount {
 		context "given BFS, A to C" {
 			fact {
 				subject = new RoutesFinderByStopsCount(algorithm);
-				subject.calculate("A", "C", 3)
+				subject.calculate("A", "C", 4)
 				subject.routes.forEach[ println(GraphHelper.getNames(it)) ]
 				subject.routes.size should be 3
 			}
