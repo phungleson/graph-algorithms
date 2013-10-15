@@ -12,7 +12,7 @@ describe RoutesFinderByStopsCount {
 		algorithm = new RoutesFinderBFS(TestHelper.graph);
 	}
 
-	describe "#calculate" {
+	describe "#findRoutes" {
 		context "given BFS, A to C" {
 			fact {
 				subject = new RoutesFinderByStopsCount(algorithm);

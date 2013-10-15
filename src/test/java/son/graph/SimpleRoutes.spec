@@ -14,7 +14,7 @@ describe SimpleRoutes {
 		subject = new SimpleRoutes()
 	}
 
-	describe "#calculate" {
+	describe "#distance" {
 		fact "route A-B-C" {
 			subject.distance(
 				GraphHelper.getNodes(graph, "A", "B", "C")

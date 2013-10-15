@@ -11,7 +11,7 @@ describe RoutesFinderByStopsMax {
 	before {
 		algorithm = new RoutesFinderBFS(TestHelper.graph);
 	}
-	describe "#calculate" {
+	describe "#findRoutes" {
 		context "given BFS, C to C" {
 			fact {
 				subject = new RoutesFinderByStopsMax(algorithm)

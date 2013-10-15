@@ -18,7 +18,7 @@ describe RoutesFinderByDistanceMax {
 		algorithm = new RoutesFinderBFS(graph);
 	}
 
-	describe "#calculate" {
+	describe "#findRoutes" {
 		context "given BFS, C to C" {
 			fact {
 				subject = new RoutesFinderByDistanceMax(algorithm);

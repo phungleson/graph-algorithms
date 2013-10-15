@@ -16,12 +16,12 @@ describe RoutesFinderByShortestDistance {
 		graph = TestHelper.graph
 		routes = new SimpleRoutes();
 		algorithm = new RoutesFinderBFS(graph);
-		subject = new RoutesFinderByShortestDistance(algorithm);
 	}
 
-	describe "#calculate" {
+	describe "#find" {
 		context "given BFS, A to C" {
 			fact {
+				subject = new RoutesFinderByShortestDistance(algorithm);
 				var route = subject.find("A", "C", routes);
 
 				route should not be null
@@ -32,6 +32,7 @@ describe RoutesFinderByShortestDistance {
 		
 		context "given BFS, B to B" {
 			fact {
+				subject = new RoutesFinderByShortestDistance(algorithm);
 				var route = subject.find("B", "B", routes);
 
 				route should not be null
