@@ -7,8 +7,13 @@ import son.graph.algorithms.RoutesContraint;
 import son.graph.algorithms.RoutesFinder;
 import son.graph.models.interfaces.Node;
 
+/**
+ * {@link RoutesFinder} with distance between begin node and end node no more
+ * than distance max.
+ * 
+ * @author son
+ */
 public class RoutesFinderByDistanceMax extends RoutesFinderByConstraint {
-
 	public RoutesFinderByDistanceMax(RoutesFinder routesFinder) {
 		super(routesFinder);
 	}

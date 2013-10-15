@@ -5,13 +5,17 @@ import java.util.List;
 import son.graph.algorithms.DistanceCalculator;
 import son.graph.exceptions.RouteNotFoundException;
 import son.graph.models.interfaces.Edge;
-import son.graph.models.interfaces.Graph;
 import son.graph.models.interfaces.Node;
 
+/**
+ * Calculate distance of a route connecting multiple nodes
+ * 
+ * @author son
+ */
 public class SimpleDistanceCalculator extends DistanceCalculator {
 
-	public SimpleDistanceCalculator(Graph graph) {
-		super(graph);
+	public SimpleDistanceCalculator() {
+		super(null);
 	}
 
 	@Override

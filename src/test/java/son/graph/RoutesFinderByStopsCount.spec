@@ -16,8 +16,8 @@ describe RoutesFinderByStopsCount {
 			fact {
 				subject = new RoutesFinderByStopsCount(algorithm);
 				subject.calculate("A", "C", 4)
-				subject.routes.forEach[ println(GraphHelper.getNames(it)) ]
 				subject.routes.size should be 3
+				subject.routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
 			}
 		}		
 	}

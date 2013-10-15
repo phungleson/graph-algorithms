@@ -7,6 +7,13 @@ import son.graph.helpers.GraphHelper;
 import son.graph.models.interfaces.Graph;
 import son.graph.models.interfaces.Node;
 
+/**
+ * Implement breadth-first-search algorithm
+ * (http://en.wikipedia.org/wiki/Breadth-first_search) to search though the
+ * graph.
+ * 
+ * @author son
+ */
 public class RoutesFinderBFS extends RoutesFinder {
 	public RoutesFinderBFS(Graph graph) {
 		super(graph);

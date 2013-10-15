@@ -11,7 +11,7 @@ describe SimpleDistanceCalculator {
 
 	before {
 		graph = TestHelper.graph
-		subject = new SimpleDistanceCalculator(graph)
+		subject = new SimpleDistanceCalculator()
 	}
 
 	describe "#calculate" {

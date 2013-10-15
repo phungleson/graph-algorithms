@@ -6,6 +6,12 @@ import son.graph.algorithms.RoutesContraint;
 import son.graph.algorithms.RoutesFinder;
 import son.graph.models.interfaces.Node;
 
+/**
+ * {@link RoutesFinder} with the number of stops between begin node and end node
+ * is smaller or equal to stops max.
+ * 
+ * @author son
+ */
 public class RoutesFinderByStopsMax extends RoutesFinderByConstraint {
 
 	public RoutesFinderByStopsMax(RoutesFinder routesFinder) {
