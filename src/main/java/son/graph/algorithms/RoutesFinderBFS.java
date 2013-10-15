@@ -1,5 +1,6 @@
 package son.graph.algorithms;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,9 +9,9 @@ import son.graph.models.interfaces.Graph;
 import son.graph.models.interfaces.Node;
 
 /**
- * Implement breadth-first-search algorithm
- * (http://en.wikipedia.org/wiki/Breadth-first_search) to search though the
- * graph.
+ * Breadth-first-search algorithm
+ * (http://en.wikipedia.org/wiki/Breadth-first_search) implementation to find
+ * routes from begin node to end node in the graph.
  * 
  * @author son
  */
@@ -20,18 +21,23 @@ public class RoutesFinderBFS extends RoutesFinder {
 	}
 
 	@Override
-	public void calculate(String beginName, String endName, RoutesContraint routesContraints) {
+	public List<List<Node>> findRoutes(String beginName, String endName,
+			RoutesConstraint routesContraints) {
 		Node beginNode = getGraph().getNodes().get(beginName);
 		Node endNode = getGraph().getNodes().get(endName);
+
+		List<List<Node>> routes = new ArrayList<>();
 
 		LinkedList<Node> currentRoute = new LinkedList<>();
 		currentRoute.add(beginNode);
 
-		calculate(currentRoute, endNode, routesContraints);
+		bfs(routes, currentRoute, endNode, routesContraints);
+
+		return routes;
 	}
 
-	private void calculate(LinkedList<Node> currentRoute, Node endNode,
-			RoutesContraint routesContraints) {
+	private void bfs(List<List<Node>> routes, LinkedList<Node> currentRoute, Node endNode,
+			RoutesConstraint routesContraints) {
 		Node currentNode = currentRoute.getLast();
 
 		List<Node> nextNodes = GraphHelper.getNextNodes(currentNode);
@@ -40,7 +46,7 @@ public class RoutesFinderBFS extends RoutesFinder {
 			if (endNode.equals(nextNode)) {
 				currentRoute.add(nextNode);
 				if (routesContraints.canStop(currentRoute)) {
-					addRoute(currentRoute);
+					routes.add(new ArrayList<>(currentRoute));
 				}
 				currentRoute.removeLast();
 				break;
@@ -51,7 +57,7 @@ public class RoutesFinderBFS extends RoutesFinder {
 			currentRoute.addLast(nextNode);
 
 			if (routesContraints.canMoveNext(currentRoute)) {
-				calculate(currentRoute, endNode, routesContraints);
+				bfs(routes, currentRoute, endNode, routesContraints);
 			}
 
 			currentRoute.removeLast();

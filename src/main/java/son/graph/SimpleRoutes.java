@@ -2,7 +2,7 @@ package son.graph;
 
 import java.util.List;
 
-import son.graph.algorithms.DistanceCalculator;
+import son.graph.algorithms.Routes;
 import son.graph.exceptions.RouteNotFoundException;
 import son.graph.models.interfaces.Edge;
 import son.graph.models.interfaces.Node;
@@ -12,14 +12,14 @@ import son.graph.models.interfaces.Node;
  * 
  * @author son
  */
-public class SimpleDistanceCalculator extends DistanceCalculator {
+public class SimpleRoutes extends Routes {
 
-	public SimpleDistanceCalculator() {
+	public SimpleRoutes() {
 		super(null);
 	}
 
 	@Override
-	public int calculate(List<Node> nodes) {
+	public int distance(List<Node> nodes) {
 		int distance = 0;
 
 		for (int i = 0; i < nodes.size() - 1; i++) {

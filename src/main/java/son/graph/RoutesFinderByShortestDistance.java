@@ -2,9 +2,9 @@ package son.graph;
 
 import java.util.List;
 
-import son.graph.algorithms.DistanceCalculator;
-import son.graph.algorithms.RoutesContraint;
+import son.graph.algorithms.Routes;
 import son.graph.algorithms.RoutesFinder;
+import son.graph.algorithms.RoutesConstraint;
 import son.graph.models.interfaces.Node;
 
 /**
@@ -19,29 +19,26 @@ public class RoutesFinderByShortestDistance extends RoutesFinderByConstraint {
 		super(routesFinder);
 	}
 
-	public void calculate(String beginName, String endName, DistanceCalculator distanceCalculator) {
-		calculate(beginName, endName, new Constraint(distanceCalculator, getGraph()
-			.getNodes()
-			.size()));
+	public List<Node> find(String beginName, String endName, Routes distanceCalculator) {
+		List<List<Node>> routes = findRoutes(beginName, endName, new Constraint(
+																				distanceCalculator,
+																				getGraph()
+																					.getNodes()
+																					.size()));
 
-		if (getRoutes().size() > 0) {
-			shortestRoute = getRoutes().get(getRoutes().size() - 1);
+		if (routes.size() > 0) {
+			return routes.get(routes.size() - 1);
 		}
+		return null;
 	}
 
-	private List<Node> shortestRoute;
-
-	public List<Node> getShortestRoute() {
-		return shortestRoute;
-	}
-
-	public static class Constraint implements RoutesContraint {
-		public Constraint(DistanceCalculator distanceCalculator, int nodesCount) {
+	public static class Constraint implements RoutesConstraint {
+		public Constraint(Routes distanceCalculator, int nodesCount) {
 			this.distanceCalculator = distanceCalculator;
 			this.nodesCount = nodesCount;
 		}
 
-		private final DistanceCalculator distanceCalculator;
+		private final Routes distanceCalculator;
 
 		private int shortestDistance = Integer.MAX_VALUE;
 
@@ -49,7 +46,7 @@ public class RoutesFinderByShortestDistance extends RoutesFinderByConstraint {
 
 		@Override
 		public boolean canStop(List<Node> currentRoute) {
-			int currentDistance = distanceCalculator.calculate(currentRoute);
+			int currentDistance = distanceCalculator.distance(currentRoute);
 			if (shortestDistance > currentDistance) {
 				shortestDistance = currentDistance;
 				return true;
@@ -63,7 +60,7 @@ public class RoutesFinderByShortestDistance extends RoutesFinderByConstraint {
 		 */
 		@Override
 		public boolean canMoveNext(List<Node> currentRoute) {
-			return distanceCalculator.calculate(currentRoute) < shortestDistance &&
+			return distanceCalculator.distance(currentRoute) < shortestDistance &&
 					currentRoute.size() <= nodesCount;
 		}
 	}

@@ -11,13 +11,14 @@ describe RoutesFinderByStopsCount {
 	before {
 		algorithm = new RoutesFinderBFS(TestHelper.graph);
 	}
+
 	describe "#calculate" {
 		context "given BFS, A to C" {
 			fact {
 				subject = new RoutesFinderByStopsCount(algorithm);
-				subject.calculate("A", "C", 4)
-				subject.routes.size should be 3
-				subject.routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
+				var routes = subject.findRoutes("A", "C", 4)
+				routes.size should be 3
+				routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
 			}
 		}		
 	}

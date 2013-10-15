@@ -4,38 +4,39 @@ import son.graph.algorithms.RoutesFinder
 import son.graph.algorithms.RoutesFinderBFS
 import son.graph.helpers.GraphHelper
 import son.graph.models.interfaces.Graph
-import son.graph.algorithms.DistanceCalculator
+import son.graph.algorithms.Routes
 
 describe RoutesFinderByShortestDistance {
 	var Graph graph;
 	var RoutesFinder algorithm;
-	var DistanceCalculator distanceCalculator; 
+	var Routes routes; 
 	var RoutesFinderByShortestDistance subject;
 
 	before {
 		graph = TestHelper.graph
-		distanceCalculator = new SimpleDistanceCalculator();
+		routes = new SimpleRoutes();
 		algorithm = new RoutesFinderBFS(graph);
 		subject = new RoutesFinderByShortestDistance(algorithm);
 	}
+
 	describe "#calculate" {
 		context "given BFS, A to C" {
 			fact {
-				subject.calculate("A", "C", distanceCalculator);
+				var route = subject.find("A", "C", routes);
 
-				subject.shortestRoute should not be null
-				distanceCalculator.calculate(subject.shortestRoute) should be 9
-				println(GraphHelper.getNodeNames(subject.shortestRoute))
+				route should not be null
+				routes.distance(route) should be 9
+				println(GraphHelper.getNodeNames(route))
 			}
 		}
 		
 		context "given BFS, B to B" {
 			fact {
-				subject.calculate("B", "B", distanceCalculator);
+				var route = subject.find("B", "B", routes);
 
-				subject.shortestRoute should not be null
-				distanceCalculator.calculate(subject.shortestRoute) should be 9
-				println(GraphHelper.getNodeNames(subject.shortestRoute))
+				route should not be null
+				routes.distance(route) should be 9
+				println(GraphHelper.getNodeNames(route))
 			}
 		}
 	}
