@@ -24,7 +24,7 @@ public abstract class RoutesFinderByConstraint extends RoutesFinder {
 
 	@Override
 	public List<List<Node>> findRoutes(String beginName, String endName,
-			RoutesConstraint routeContraint) {
-		return routesFinder.findRoutes(beginName, endName, routeContraint);
+			RoutesConstraint routeConstraint) {
+		return routesFinder.findRoutes(beginName, endName, routeConstraint);
 	}
 }

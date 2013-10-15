@@ -19,11 +19,11 @@ public class RoutesFinderByStopsCount extends RoutesFinderByConstraint {
 	}
 
 	public List<List<Node>> findRoutes(String beginName, String endName, int stopsCount) {
-		return findRoutes(beginName, endName, new Constraints(stopsCount));
+		return findRoutes(beginName, endName, new Constraint(stopsCount));
 	}
 
-	public static class Constraints implements RoutesConstraint {
-		public Constraints(int stopsCount) {
+	public static class Constraint implements RoutesConstraint {
+		public Constraint(int stopsCount) {
 			this.stopsCount = stopsCount;
 		}
 
