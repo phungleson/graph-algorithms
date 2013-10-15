@@ -35,7 +35,6 @@ public class RoutesFinderBFS extends RoutesFinder {
 				if (routesContraints.canStop(currentRoute)) {
 					addRoute(currentRoute);
 				}
-				// printPath(currentRoute);
 				currentRoute.removeLast();
 				break;
 			}
