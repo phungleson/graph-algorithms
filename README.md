@@ -1,4 +1,4 @@
-graph-algorithms
+Graph Algorithms
 ================
 
-Graph Algorithms
+Implementation of some common graph algorithms.
