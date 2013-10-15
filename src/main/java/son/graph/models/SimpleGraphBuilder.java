@@ -13,6 +13,11 @@ public class SimpleGraphBuilder implements GraphBuilder {
 	private final Graph graph;
 
 	@Override
+	public Graph getGraph() {
+		return graph;
+	}
+
+	@Override
 	public void addEdge(String name, String nextName, int weight) {
 		Node node = getOrCreateNode(name);
 		Node nextNode = getOrCreateNode(nextName);
