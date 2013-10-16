@@ -9,7 +9,7 @@ import son.graph.algorithms.Routes
 describe RoutesFinderByShortestDistance {
 	var Graph graph;
 	var RoutesFinder algorithm;
-	var Routes routes; 
+	var Routes routes;
 	var RoutesFinderByShortestDistance subject;
 
 	before {
@@ -29,7 +29,7 @@ describe RoutesFinderByShortestDistance {
 				println(GraphHelper.getNodeNames(route))
 			}
 		}
-		
+
 		context "given BFS, B to B" {
 			fact {
 				subject = new RoutesFinderByShortestDistance(algorithm);

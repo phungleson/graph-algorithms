@@ -5,7 +5,7 @@ import son.graph.algorithms.RoutesFinderBFS
 import son.graph.helpers.GraphHelper
 
 describe RoutesFinderByStopsMax {
-	var RoutesFinder algorithm; 
+	var RoutesFinder algorithm;
 	var RoutesFinderByStopsMax subject;
 
 	before {
@@ -19,6 +19,6 @@ describe RoutesFinderByStopsMax {
 				routes should be 2
 				routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
 			}
-		}		
+		}
 	}
 }

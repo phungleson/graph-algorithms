@@ -8,7 +8,7 @@ import son.graph.models.interfaces.Graph
 
 describe RoutesFinderByDistanceMax {
 	var Graph graph;
-	var RoutesFinder algorithm; 
+	var RoutesFinder algorithm;
 	var Routes routesCalculator;
 	var RoutesFinderByDistanceMax subject;
 
@@ -26,6 +26,6 @@ describe RoutesFinderByDistanceMax {
 				routes.size should be 7
 				routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
 			}
-		}		
+		}
 	}
 }

@@ -20,27 +20,27 @@ describe SimpleRoutes {
 				GraphHelper.getNodes(graph, "A", "B", "C")
 			) should be 9
 		}
-		
+
 		fact "route A-D" {
 			subject.distance(
 				GraphHelper.getNodes(graph, "A", "D")
 			) should be 5
 		}
-		
+
 		fact "route A-D-C" {
 			subject.distance(
 				GraphHelper.getNodes(graph, "A", "D", "C")
 			) should be 13
 		}
-		
+
 		fact "route A-E-B-C-D" {
 			subject.distance(
 				GraphHelper.getNodes(graph, "A", "E", "B", "C", "D")
-			) should be 22			
+			) should be 22
 		}
-		
+
 		fact "route A-E-D" {
-			subject.distance(GraphHelper.getNodes(graph, "A", "E", "D")) throws RouteNotFoundException 			
+			subject.distance(GraphHelper.getNodes(graph, "A", "E", "D")) throws RouteNotFoundException
 		}
 	}
 }

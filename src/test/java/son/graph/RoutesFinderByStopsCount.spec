@@ -5,7 +5,7 @@ import son.graph.algorithms.RoutesFinderBFS
 import son.graph.helpers.GraphHelper
 
 describe RoutesFinderByStopsCount {
-	var RoutesFinder algorithm; 
+	var RoutesFinder algorithm;
 	var RoutesFinderByStopsCount subject;
 
 	before {
@@ -20,6 +20,6 @@ describe RoutesFinderByStopsCount {
 				routes.size should be 3
 				routes.forEach[ println(GraphHelper.getNodeNames(it)) ]
 			}
-		}		
+		}
 	}
 }
